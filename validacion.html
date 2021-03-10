@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALIDACION  </title>
+</head>
+ <style>
+    table {
+      text-align: center;
+      background: aquamarine;
+      width: 50%;
+      margin: auto;
+      border: 2px solid blue;
+    } 
+    td {
+        padding: 15px;
+    }
+ </style>
+<body>
+   <section>
+       <form name="registro_usuario" method="get">
+
+     <table><tr><td>
+    Nombre:</td><td><input type="text" name="nombre" id="nombre"></td></tr>
+    <tr><td>
+    kcal:</td><td><input type="number" name="kcal" id="kcal"></td></tr>
+    <tr><td>
+  
+    <input type="submit" id="enviar" value="registrar"></td></tr>
+    </table>
+
+     <!--<datalist id="informacion">
+
+      <option value="Renal" label="  1600 kcal"></option>
+      <option value="Cetogenica" label="  1600 kcal"></option>
+      <option value="Hipertensa" label="  1600 kcal"></option>
+          </datalist>
+Elegir menu:&nbsp; <input type="text" name="menu" id="menu" list="informacion">-->
+      </form>
+   </section> 
+   <script>
+     function comenzar (){
+         var nombre=document.getElementById("nombre");
+         var Kcal=document.getElementById("kcal");
+
+         nombre.addEventListener("input", validar, false);
+         kcal.addEventListener("input", validar, false);
+
+
+         validar();
+     }
+      function validar () {
+          if(nombre.value=="" && kcal.value==""){
+             nombre.setCustomValidity("Introduce nombre o kcal");
+             nombre.style.background="#FFDDDD";
+          
+             kcal.style.background="#FFDDDD";
+          }
+          else{
+            nombre.setCustomValidity("");
+
+            nombre.style.background="#FFFFFF";
+             apellido.style.background="#FFFFFF";
+
+          }
+      }
+
+
+     window.addEventListener('load', comenzar, false); 
+      
+
+   </script>
+</body>
+</html>

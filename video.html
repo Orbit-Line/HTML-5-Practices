@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="audio/estiloaudio.css">
+</head>
+<body>
+     <!---------REALIZACION VIDEO ---
+    <div style="text-align: center;">
+    <button onclick="playpause()">Play/Pause</button>
+    <button onclick="completa()">Completa</button>
+    <button onclick="normal()">Normal</button>
+     <br><br>
+    <video id="video" width="360" poster="video/fondo.jpg">
+        <source src="video/video.mp4">
+    </video>
+    </div>
+    <script>
+        var mi_video = document.getElementById("video");
+        function playpause() {
+            if (mi_video.paused) {
+               mi_video.play();
+            }
+               else
+               mi_video.pause(); 
+           }
+           function completa() {
+               mi_video.width = 1080;
+           }
+           function normal() {
+               mi_video.width = 360;
+           }            
+                   ---------realización de audio----->
+            
+<br><br>
+           <div class="audio">
+               <audio id="player" src="audio/Piano-Rock.mp3"></audio>
+               <button onclick="document.getElementById('player').play()">></button>
+               <button onclick="document.getElementById('player').pause()">ll</button>
+               <button onclick="document.getElementById('player').volume += 0.1">+</button>
+               <button onclick="document.getElementById('player').volume -= 0.1">-</button>
+
+           </div>       
+    </script>
+</body>
+</html>

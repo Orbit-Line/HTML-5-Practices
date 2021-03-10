@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Prueba Nuevos Elementos del Formulario</title>
+</head>
+<style type="text/css">
+ table{
+  text-align:center;
+  background: #E6935A;
+  width : 25%;
+  margin: auto;
+  border: 2px blue dashed;
+ }
+ td{
+  padding : 15px;
+ }
+</style>
+<script type="text/javascript">
+ var edad;
+
+ function comenzar(){
+  edad = document.getElementById("miedad");
+  edad.addEventListener("change",cambiaRango,false);
+
+  document.datos_Usuario.addEventListener("invalid",validar,true);
+  document.getElementById("enviar").addEventListener("click",enviar,false);
+  document.datos_Usuario.addEventListener("input",validarTiempoReal,false);
+ }
+ //------------------------------------------------
+ function cambiaRango(){
+  var salida = document.getElementById("rango");
+
+  var calculo = edad.value - 30;
+
+  if (calculo < 30) {
+   calculo = 0;
+   edad.value = 30;
+  }
+
+  salida.innerHTML=calculo+" a "+edad.value;
+ }
+
+ //-----------------------------------------------
+ function validar(e){
+  var elemento=e.target;//localiza el objeto que genera el error
+  elemento.style.background="#C57676";
+ }
+
+ //-----------------------------------------------
+ function enviar(){
+  var cuadroUsuario=document.getElementById("usuario");  /*mensaje person*/ 
+  var correcto=document.datos_Usuario.checkValidity();
+   //checkValidity : si la validacion es true o false
+  if(correcto == true){
+   document.datos_Usuario.submit();
+  }else if (cuadroUsuario.validity.valueMissing==true  || cuadroUsuario.validity.patternMismatch){
+      
+      alert("Introduzca el nombre correcto de tu tipo de dieta");
+  }
+ }
+
+ //--------------------------------------------
+ function validarTiempoReal(e) {
+  var elemento=e.target;
+  if(elemento.validity.valid==true){
+   elemento.style.background="#FFFFFF";
+  }else{
+   elemento.style.background="#FD0B0B";
+  }
+ }
+
+ window.addEventListener("load", comenzar, false);
+
+</script>
+<body>
+ <section>
+  
+  <form name="datos_Usuario" method="get">
+   <table>
+    <!-- <tr> es Fila y <td> es Celda -->
+
+    <!--primero-->
+    <tr>
+     <td>
+      Usuario:
+     </td>
+     <td>
+      <input pattern="[A-za-z]{3}" name="usuario" id="usuario" maxlength="10" required>
+     </td>
+    </tr>
+
+    <!--segundo-->
+    <tr>
+     <td>
+      Email: 
+     </td>
+     <td>
+      <input type="email" name="miEmail" id="miEmail" required>
+     </td>
+    </tr>
+
+    <!--tercero-->
+    <tr>
+     <td>
+      Edad:
+     </td>
+     <td>
+      <input type="range" name="miedad" id="miedad" min="0" max="120" step="30" value="30"> 
+     </td>
+    </tr>
+
+    <!--cuarto-->
+    <tr>
+     <td>
+      <output id="rango">0 a 30</output>
+     </td>
+    </tr>
+
+    <!--quinto-->
+    <tr>
+     <td>
+      <input type="submit" name="Enviar" id="enviar" value="registrar">
+     </td>
+    </tr>
+   </table>
+  </form>
+ </section>
+</body>
+</html>

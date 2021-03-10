@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+<body>
+    <br><br>
+   <canvas id="dibujo" width="350" height="200"
+    style="border: 4px solid rgb(73, 112, 14);"></canvas> 
+     <script>
+        var a = document.getElementById("dibujo");
+        var ctx = a.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(150,70,50,0, 2* Math.PI);
+        ctx.strokeStyle = "red";
+        ctx.fillStyle = "blue";
+        ctx.stroke();
+     </script>
+     
+  <!----<script>
+     var a = document.getElementById("dibujo");
+      var ctx = a.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "blue";
+      ctx.fillText("Nutriologa chingona", 43, 200 );
+      
+  </script>-->
+
+
+</body>
+</html>
